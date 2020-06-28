@@ -56,13 +56,59 @@ let motoca = criarMoto('Honda','Azul')
 function Carro(marca,rodas,cor){
     this.marca=marca,
     this.rodas=rodas,
-    this.cor=cor,
-
-    this.roncarMotor=function(){
-        console.log('ennnneeeennnnnnnnneeeeeeeennnnnnnnnneeeeeee')
-    }
+    this.cor=cor
 }
-
+//classe fica com as propriedades
+//metodos sao definidos e atrelados ao prototype
+Carro.prototype.roncarMotor=function(){
+    console.log('ennnneeeennnnnnnnneeeeeeeennnnnnnnnneeeeeee')
+};
 
 let prisma=new Carro('VW',4,'Branco')
 prisma.roncarMotor()
+
+
+//VIA ES6
+
+class Pessoa{
+    constructor(nome,idade){
+        this.nome=nome,
+        this.idade=idade
+    }
+
+    falar=function(){
+        console.log("oi eu sou "+this.nome)
+    }
+
+    get pegarNome(){
+        return this.nome
+    }
+
+    set setNome(nm){
+        this.nome=nm
+    }
+
+}
+
+//alterar no protype o valor padrao
+Pessoa.prototype.nome='SEM NOME'
+Pessoa.prototype.idade=0
+
+let person=new Pessoa('Matheus',22)
+
+console.log(person.nome+"-"+person.idade)//imprime matheus 22
+
+console.log(Pessoa.prototype)//imprime o protoipo padrao 
+
+//PRECISO SABER A QNT DE PERNAS TD MUNDO TEM 2 ENTAO ADICIONO ISSO AO PROTYPE PESSOAPRA NAO TER QPASSAR
+Pessoa.prototype.pernas=2
+
+//adicionando constante
+
+let especie=Symbol();
+
+Pessoa.prototype[especie]='humano'
+
+person.setNome='marcos';
+
+//isso so pode ser acessado pelo prototype Pessoa.prototype[especie]
