@@ -42,3 +42,4 @@ let nomeAdd = document.getElementById('titulo-principal');
 
 let textoNome = document.createTextNode('Olá '+nome);
 nomeAdd.appendChild(textoNome);
+
